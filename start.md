@@ -4,19 +4,20 @@
 
 ``` PowerShell
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-choco install googlechrome
-choco install firefox
-choco install notepadplusplus.install
-choco install 7zip.install
-choco install microsoft-teams.install
-choco install git.install
-choco install sysinternals
-choco install foxitreader
-choco install paint.net
-choco install vscode
-choco install nodejs
-choco install microsoft-windows-terminal
-choco install wireshark
+choco install googlechrome -y
+choco install firefox -y
+choco install notepadplusplus.install -y
+choco install 7zip.install -y
+choco install microsoft-teams.install -y
+choco install git.install -y
+choco install sysinternals -y
+choco install foxitreader -y
+choco install paint.net -y
+choco install vscode -y
+choco install nodejs -y
+choco install microsoft-windows-terminal -y
+choco install wireshark -y
+choco install yarn -y
 ```
 
 ## Registery Settings
@@ -68,3 +69,4 @@ Windows Registry Editor Version 5.00
 
 ## PowerShell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
