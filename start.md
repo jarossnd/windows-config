@@ -21,6 +21,17 @@ choco install yarn -y
 choco install gh -y
 choco install fiddler -y
 ```
+## Other Software
+
+choco install brave -y
+
+## GH Stuff
+
+```
+mkdir $home/repos
+cd $home/repos
+gh auth login
+```
 
 ## Registery Settings
 
