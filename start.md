@@ -7,7 +7,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install googlechrome -y
 choco install firefox -y
 choco install notepadplusplus.install -y
-choco install 7zip.install -y
+choco install winrar -y
 choco install microsoft-teams.install -y
 choco install git.install -y
 choco install sysinternals -y
@@ -18,6 +18,8 @@ choco install nodejs -y
 choco install microsoft-windows-terminal -y
 choco install wireshark -y
 choco install yarn -y
+choco install gh -y
+choco install fiddler -y
 ```
 
 ## Registery Settings
