@@ -1,0 +1,67 @@
+" ---------------------------------
+" - Jason Ross NeoVim Config File -
+" - - -   www.jasonross.dev   - - -
+" ---------------------------------
+
+" NeoVim Encoding
+set encoding=UTF-8
+
+" Allow Mouse Clicks
+set mouse=a
+
+" Allow copy all lines: %y to work
+set clipboard+=unnamedplus
+
+" Set Backup
+set backup
+
+" NeoVim Tab Configuration
+set smarttab     " When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'.
+set cindent
+set tabstop=2    " Number of spaces that a <Tab> in the file counts for.
+set shiftwidth=2 " Number of spaces to use for each step of (auto)indent. Used for 'cindent'.
+set expandtab    " Fill the tab with the amount of whitespace of the tab
+
+" Line number config
+set number
+" set relativenumber
+
+" Set Windows Python Location
+let g:python3_host_prog = 'C:\Users\jaross\AppData\Local\Programs\Python\Python310\python.exe'
+
+" Plugin Manager
+call plug#begin()
+  Plug 'preservim/nerdtree'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} "coc
+  let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier'] "coc extensions
+  Plug 'alvan/vim-closetag'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'yuezk/vim-js'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'ryanoasis/vim-devicons'
+call plug#end()
+
+" Change escape key to jk
+inoremap jk <Esc>
+tnoremap jk <C-\><C-n>
+
+" Keybindings for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" NERDTree Control + F
+nmap <C-f> :NERDTreeToggle<CR>
+nmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+" NERDTree open automatically
+autocmd VimEnter * NERDTree
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Run prettier on save
+let g:prettier#autoformat = 1
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
