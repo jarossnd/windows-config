@@ -1,0 +1,2 @@
+Copy-Item ~\AppData\Local\nvim\init.vim ~\AppData\Local\nvim\init.vim.bak
+Copy-Item ~\repos\windows-config\nvim\init.vim ~\AppData\Local\nvim\init.vim
