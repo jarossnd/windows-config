@@ -39,7 +39,12 @@ call plug#begin()
   Plug 'yuezk/vim-js'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'ryanoasis/vim-devicons'
+<<<<<<< HEAD
 call plug#end()
+=======
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  call plug#end()
+>>>>>>> 766fc23af2fcf23f49123180963624e2b9e22c5e
 
 " Change escape key to jk
 inoremap jk <Esc>
