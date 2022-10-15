@@ -66,3 +66,21 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Run prettier on save
 let g:prettier#autoformat = 1
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+" Function for Word Processing in NeoVim
+func! WordProcessor()
+  " movement changes
+  map j gj
+  map k gk
+  " formatting text
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  setlocal wrap
+  setlocal linebreak
+  " spelling and thesaurus
+  setlocal spell spelllang=en_us "press z= over and incorrect spelt word for suggestions inside Vim
+  set thesaurus+=/home/test/.vim/thesaurus/mthesaur.txt
+  " complete+=s makes autocompletion search the thesaurus
+  set complete+=s
+endfu
+com! WP call WordProcessor()
