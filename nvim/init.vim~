@@ -13,7 +13,7 @@ set mouse=a
 set clipboard+=unnamedplus
 
 " Set Backup
-" set backup
+set backup
 
 " NeoVim Tab Configuration
 set smarttab     " When on, a <Tab> in front of a line inserts blanks according to 'shiftwidth'.
