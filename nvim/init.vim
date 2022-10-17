@@ -1,5 +1,7 @@
 " ---------------------------------
 " - Jason Ross NeoVim Config File -
+" - This config file is for Win11 -
+" - Terminal Win Terminal Preview - 
 " - - -   www.jasonross.dev   - - -
 " ---------------------------------
 
@@ -26,7 +28,7 @@ set expandtab    " Fill the tab with the amount of whitespace of the tab
 
 " Line number config
 set number
-" set relativenumber
+set relativenumber
 
 " Set Windows Python Location
 let g:python3_host_prog = 'C:\Users\jaross\AppData\Local\Programs\Python\Python310\python.exe'
@@ -37,12 +39,13 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'} "coc
   let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier'] "coc extensions
   Plug 'alvan/vim-closetag'
-"DEL:  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" Plug 'sbdchd/neoformat' "https://prettier.io/docs/en/vim.html
   Plug 'yuezk/vim-js'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'ryanoasis/vim-devicons'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+  Plug 'navarasu/onedark.nvim' "Theme: there is more config settings below
   call plug#end()
 
 " Change escape key to jk
@@ -55,7 +58,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" NERDTree Control + F
+" NERDTree Control + f3
 "nmap <C-f> :NERDTreeToggle<CR>
 nmap <F3> :NERDTreeToggle<CR>
 nmap ++ <plug>NERDCommenterToggle
@@ -67,8 +70,7 @@ autocmd VimEnter * NERDTree
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-
-" - - - Preitter Settings - - - 
+" START: - - - Prettier Settings - - -
 " Run prettier on save
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " Some servers have issues with backup files, see #649.
@@ -221,12 +223,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-
-
-
-
-
+" END: - - - Preitter Settings - - - 
 
 
 
@@ -247,3 +244,23 @@ func! WordProcessor()
   set complete+=s
 endfun
 com! WP call WordProcessor()
+
+
+
+
+" START: - - - OneDark Theme Config - - -
+" Options: Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+let g:onedark_config = {
+    \ 'style': 'deep',
+    \ 'toggle_style_key': '<leader>ts',
+\}
+colorscheme onedark
+" END: - - - OneDark Theme Config - - -
+
+" START: - - - Telescope Settings - - -
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" END: - - - Telescope Settings - - -
+
