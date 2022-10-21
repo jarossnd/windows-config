@@ -1,0 +1,3 @@
+mklink "C:\Users\<profile>\AppData\Local\nvim\init.vim" "C:\Users\<profile>\repos\windows-config\nvim\init.vim"
+
+mklink "C:\Users\<profile>\AppData\Local\nvim\coc-settings.json" "C:\Users\<profile>\repos\windows-config\nvim\coc-settings.json"
