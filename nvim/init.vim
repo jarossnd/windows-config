@@ -43,6 +43,7 @@ call plug#begin()
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'ryanoasis/vim-devicons'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'digitaltoad/vim-pug'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
   Plug 'navarasu/onedark.nvim' "Theme: there is more config settings below
